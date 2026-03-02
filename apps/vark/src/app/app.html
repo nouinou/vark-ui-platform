@@ -1,0 +1,66 @@
+<div class="app-shell">
+  <header class="app-header">
+    <div class="brand-block">
+      <span class="brand-mark">V</span>
+      <div>
+        <p class="eyebrow">Bug Tracking Platform</p>
+        <h1>Vark</h1>
+      </div>
+    </div>
+
+    <nav class="header-nav" aria-label="Primary">
+      <a href="/">Dashboard</a>
+      <a href="/">Tickets</a>
+      <a href="/">Teams</a>
+    </nav>
+  </header>
+
+  <main class="app-main">
+    <section class="hero">
+      <p class="eyebrow">Workspace Overview</p>
+      <h2>Track issues, manage priorities, and keep releases moving.</h2>
+      <p class="hero-copy">
+        Vark gives product and engineering teams one place to triage incoming bugs,
+        organize tickets, and follow delivery status from report to resolution.
+      </p>
+    </section>
+
+    <section class="status-grid" aria-label="Ticket summary">
+      <article class="status-card">
+        <span class="status-label">Open tickets</span>
+        <strong>48</strong>
+        <p>Newly reported issues awaiting triage across all active projects.</p>
+      </article>
+
+      <article class="status-card">
+        <span class="status-label">In progress</span>
+        <strong>16</strong>
+        <p>Assigned bugs currently being investigated or fixed by the team.</p>
+      </article>
+
+      <article class="status-card">
+        <span class="status-label">Critical</span>
+        <strong>5</strong>
+        <p>High-severity defects affecting production flows and release quality.</p>
+      </article>
+    </section>
+
+    <section class="workspace-panel">
+      <div>
+        <p class="eyebrow">Current Focus</p>
+        <h3>Keep triage fast and visible</h3>
+        <p>
+          Start with a simple dashboard layout, then layer in queues, filters,
+          assignees, and SLA-focused views for support and engineering teams.
+        </p>
+      </div>
+
+      <router-outlet></router-outlet>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <p>Vark UI Platform</p>
+    <span>Built for bug tracking and ticket management workflows.</span>
+  </footer>
+</div>

@@ -1,0 +1,9 @@
+{
+  "name": "vark-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/vark-e2e/src",
+  "implicitDependencies": ["vark"],
+  "// targets": "to see all targets run: nx show project vark-e2e --web",
+  "targets": {}
+}
