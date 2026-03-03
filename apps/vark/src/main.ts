@@ -1,5 +1,5 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { initTheme } from '@vark-ui/theme';
+import { initTheme } from '@vark/ui-theme';
 import { appConfig } from './app/app.config';
 import { App } from './app/app';
 
