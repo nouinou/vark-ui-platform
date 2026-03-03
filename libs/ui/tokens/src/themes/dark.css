@@ -5,13 +5,19 @@
   --color-text: var(--color-slate-50);
   --color-text-muted: rgba(241, 245, 249, 0.82);
   --color-primary: var(--color-brand-100);
-  --color-primary-strong: var(--color-white);
+  --color-primary-strong: var(--color-brand-500);
+  --color-on-primary: var(--color-slate-900);
+  --color-on-primary-strong: var(--color-white);
+  --color-on-selected: var(--color-slate-900);
+  --color-on-selected-hover: var(--color-white);
 
   --surface-app-background: var(--color-slate-900);
   --surface-nav: rgba(15, 23, 42, 0.58);
   --surface-nav-hover: rgba(29, 140, 248, 0.16);
   --surface-button-secondary: rgba(15, 23, 42, 0.72);
   --surface-button-secondary-hover: rgba(29, 140, 248, 0.18);
+  --surface-selected: var(--color-brand-100);
+  --surface-selected-hover: var(--color-brand-700);
 
   --surface-panel-top: rgba(51, 65, 85, 0.92);
   --surface-panel-bottom: rgba(15, 23, 42, 0.96);

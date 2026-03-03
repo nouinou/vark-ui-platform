@@ -1,10 +1,10 @@
 import { THEME_STORAGE_KEY, type ResolvedThemeName, type ThemeName } from './types';
 
-function hasDom() {
+function hasDom(): boolean {
   return typeof document !== 'undefined';
 }
 
-function hasWindow() {
+function hasWindow(): boolean {
   return typeof window !== 'undefined';
 }
 
@@ -16,12 +16,12 @@ function resolveSystemTheme(): ResolvedThemeName {
   return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 }
 
-function applyThemeAttribute(theme: ResolvedThemeName) {
+function applyThemeAttribute(theme: ResolvedThemeName): void {
   if (!hasDom()) {
     return;
   }
 
-  document.documentElement.dataset.theme = theme;
+  document.documentElement.dataset['theme'] = theme;
 }
 
 export function getStoredTheme(): ThemeName | null {
@@ -42,11 +42,11 @@ export function getActiveTheme(): ResolvedThemeName {
     return 'light';
   }
 
-  const theme = document.documentElement.dataset.theme;
+  const theme = document.documentElement.dataset['theme'];
   return theme === 'dark' ? 'dark' : 'light';
 }
 
-export function setTheme(theme: ThemeName) {
+export function setTheme(theme: ThemeName): ResolvedThemeName {
   const resolvedTheme = getResolvedTheme(theme);
   applyThemeAttribute(resolvedTheme);
 
@@ -57,7 +57,7 @@ export function setTheme(theme: ThemeName) {
   return resolvedTheme;
 }
 
-export function clearStoredTheme() {
+export function clearStoredTheme(): void {
   if (!hasWindow()) {
     return;
   }
@@ -65,7 +65,7 @@ export function clearStoredTheme() {
   window.localStorage.removeItem(THEME_STORAGE_KEY);
 }
 
-export function initTheme(defaultTheme: ThemeName = 'system') {
+export function initTheme(defaultTheme: ThemeName = 'system'): ResolvedThemeName {
   const theme = getStoredTheme() ?? defaultTheme;
   return setTheme(theme);
 }

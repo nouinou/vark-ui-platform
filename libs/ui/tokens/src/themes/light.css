@@ -7,12 +7,18 @@
   --color-text-muted: var(--color-slate-500);
   --color-primary: var(--color-brand-500);
   --color-primary-strong: var(--color-brand-600);
+  --color-on-primary: var(--color-white);
+  --color-on-primary-strong: var(--color-white);
+  --color-on-selected: var(--color-white);
+  --color-on-selected-hover: var(--color-white);
 
   --surface-app-background: var(--color-surface-muted);
   --surface-nav: rgba(255, 255, 255, 0.68);
   --surface-nav-hover: rgba(238, 247, 255, 0.92);
   --surface-button-secondary: rgba(255, 255, 255, 0.78);
   --surface-button-secondary-hover: rgba(238, 247, 255, 0.9);
+  --surface-selected: var(--color-brand-500);
+  --surface-selected-hover: var(--color-brand-600);
 
   --surface-panel-top: rgba(255, 255, 255, 0.96);
   --surface-panel-bottom: rgba(248, 250, 252, 0.92);
