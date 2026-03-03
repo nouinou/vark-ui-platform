@@ -14,7 +14,13 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@vark/ui-tokens": ["libs/ui/tokens/src/index.ts"],
+      "@vark/ui-theme": ["libs/ui/theme/src/index.ts"],
+      "@vark/ui-components": ["libs/ui/components/index.ts"],
+      "@vark/ui-components/button": ["libs/ui/components/button/src/index.ts"],
+      "@vark/ui-components/link": ["libs/ui/components/link/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

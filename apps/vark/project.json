@@ -20,7 +20,7 @@
             "input": "apps/vark/public"
           }
         ],
-        "styles": ["apps/vark/src/styles.scss"]
+        "styles": ["libs/ui/tokens/src/tokens.css", "apps/vark/src/styles.scss"]
       },
       "configurations": {
         "production": {

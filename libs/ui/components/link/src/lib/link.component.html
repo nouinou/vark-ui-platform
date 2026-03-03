@@ -1,0 +1,10 @@
+<a
+  class="link"
+  [attr.href]="disabled() ? null : href()"
+  [attr.aria-disabled]="disabled() || null"
+  [attr.tabindex]="disabled() ? -1 : null"
+  [attr.target]="target()"
+  [attr.rel]="rel()"
+>
+  <ng-content></ng-content>
+</a>

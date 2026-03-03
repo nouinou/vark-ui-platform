@@ -1,0 +1,21 @@
+:root {
+  --color-white: #ffffff;
+  --color-black: #0b1220;
+
+  --color-slate-50: #f8fafc;
+  --color-slate-100: #f1f5f9;
+  --color-slate-200: #e2e8f0;
+  --color-slate-500: #64748b;
+  --color-slate-700: #334155;
+  --color-slate-900: #0f172a;
+
+  --color-brand-50: #eef7ff;
+  --color-brand-100: #d9eeff;
+  --color-brand-500: #1d8cf8;
+  --color-brand-600: #0f6fd6;
+  --color-brand-700: #0b59ac;
+
+  --color-success-500: #16a34a;
+  --color-warning-500: #d97706;
+  --color-danger-500: #dc2626;
+}
