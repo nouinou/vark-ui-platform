@@ -15,30 +15,30 @@
     </nav>
 
     <div class="theme-switcher" aria-label="Theme switcher">
-      <button
-        type="button"
+      <vark-button
         class="theme-switcher__button"
-        [class.theme-switcher__button--active]="activeTheme === 'light'"
+        variant="ghost"
+        [selected]="activeTheme === 'light'"
         (click)="selectTheme('light')"
       >
         Light
-      </button>
-      <button
-        type="button"
+      </vark-button>
+      <vark-button
         class="theme-switcher__button"
-        [class.theme-switcher__button--active]="activeTheme === 'dark'"
+        variant="ghost"
+        [selected]="activeTheme === 'dark'"
         (click)="selectTheme('dark')"
       >
         Dark
-      </button>
-      <button
-        type="button"
+      </vark-button>
+      <vark-button
         class="theme-switcher__button"
-        [class.theme-switcher__button--active]="activeTheme === 'system'"
+        variant="ghost"
+        [selected]="activeTheme === 'system'"
         (click)="selectTheme('system')"
       >
         System
-      </button>
+      </vark-button>
     </div>
   </header>
 
@@ -53,8 +53,8 @@
         </p>
 
         <div class="hero__actions">
-          <a class="button button--primary" href="/">Review queue</a>
-          <a class="button button--secondary" href="/">Inspect tokens</a>
+          <vark-link href="/" variant="button">Review queue</vark-link>
+          <vark-link href="/" variant="button-secondary">Inspect tokens</vark-link>
         </div>
       </div>
 

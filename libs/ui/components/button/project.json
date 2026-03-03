@@ -1,0 +1,9 @@
+{
+  "name": "ui-components-button",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/ui/components/button/src",
+  "projectType": "library",
+  "tags": [],
+  "// targets": "to see all targets run: nx show project ui-components-button --web",
+  "targets": {}
+}
