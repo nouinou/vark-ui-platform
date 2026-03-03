@@ -1,9 +1,7 @@
-@use 'tokens' as tokens;
-
 :host {
   display: block;
   min-height: 100vh;
-  color: tokens.$color-text;
+  color: var(--color-text);
 }
 
 a {
@@ -21,13 +19,13 @@ dd {
 
 .app-shell {
   min-height: 100vh;
-  padding: tokens.$space-6;
-  @include tokens.app-shell-background;
+  padding: var(--space-6);
+  background: var(--recipe-app-shell-background);
 }
 
 .topbar,
 .app-main {
-  width: min(tokens.$container-max, 100%);
+  width: min(var(--layout-container-max), 100%);
   margin: 0 auto;
 }
 
@@ -35,187 +33,223 @@ dd {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: tokens.$space-4;
-  margin-bottom: tokens.$space-8;
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
 }
 
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: tokens.$space-3;
+  gap: var(--space-3);
   text-decoration: none;
 }
 
 .brand__mark {
   display: grid;
   place-items: center;
-  width: tokens.$brand-mark-size;
-  height: tokens.$brand-mark-size;
-  border-radius: tokens.$radius-xl;
-  @include tokens.brand-mark-background;
-  color: tokens.$color-white;
-  box-shadow: tokens.$shadow-md;
-  font-size: tokens.$font-size-xl;
-  font-weight: tokens.$font-weight-bold;
+  width: var(--size-brand-mark);
+  height: var(--size-brand-mark);
+  border-radius: var(--radius-xl);
+  background: var(--recipe-brand-mark-background);
+  color: var(--color-white);
+  box-shadow: var(--shadow-md);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
 }
 
 .brand__copy {
   display: grid;
-  gap: tokens.$space-1;
+  gap: var(--space-1);
 }
 
 .brand__name {
-  font-size: tokens.$font-size-xl;
-  font-weight: tokens.$font-weight-bold;
-  line-height: tokens.$line-height-tight;
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
 }
 
 .brand__tag {
-  color: tokens.$color-text-muted;
-  font-size: tokens.$font-size-sm;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
 }
 
 .topbar__nav {
   display: flex;
   flex-wrap: wrap;
-  gap: tokens.$space-2;
+  gap: var(--space-2);
 }
 
 .topbar__nav a {
-  padding: tokens.$space-2 tokens.$space-3;
-  border: 1px solid tokens.$border-subtle;
-  border-radius: tokens.$radius-pill;
-  background: tokens.$surface-nav;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-pill);
+  background: var(--surface-nav);
   text-decoration: none;
-  color: tokens.$color-text;
-  font-size: tokens.$font-size-sm;
-  font-weight: tokens.$font-weight-semibold;
-  transition: tokens.$motion-transition-interactive;
+  color: var(--color-text);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  transition: var(--motion-transition-interactive);
 }
 
 .topbar__nav a:hover {
-  transform: tokens.$motion-lift-hover;
-  border-color: tokens.$border-accent;
-  background: tokens.$surface-nav-hover;
-  color: tokens.$color-primary-strong;
+  transform: var(--motion-lift-hover);
+  border-color: var(--border-accent);
+  background: var(--surface-nav-hover);
+  color: var(--color-primary-strong);
+}
+
+.theme-switcher {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  padding: var(--space-1);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-pill);
+  background: var(--surface-nav);
+  box-shadow: var(--shadow-xs);
+}
+
+.theme-switcher__button {
+  min-height: 2.5rem;
+  padding: 0 var(--space-3);
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  transition: var(--motion-transition-interactive);
+}
+
+.theme-switcher__button:hover {
+  transform: var(--motion-lift-hover);
+  color: var(--color-text);
+}
+
+.theme-switcher__button--active {
+  background: var(--color-primary);
+  color: var(--color-white);
+  box-shadow: var(--shadow-sm);
 }
 
 .app-main {
   display: grid;
-  gap: tokens.$space-4;
+  gap: var(--space-4);
 }
 
 .panel {
-  border: 1px solid tokens.$border-subtle;
-  border-radius: tokens.$radius-xl;
-  @include tokens.panel-surface;
-  box-shadow: tokens.$shadow-lg;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  background: var(--recipe-panel-surface);
+  box-shadow: var(--shadow-lg);
 }
 
 .panel--inset {
-  @include tokens.panel-inset-surface;
-  box-shadow: tokens.$shadow-sm;
+  background: var(--recipe-panel-inset-surface);
+  box-shadow: var(--shadow-sm);
 }
 
 .eyebrow {
-  color: tokens.$color-primary-strong;
-  font-size: tokens.$font-size-xs;
-  font-weight: tokens.$font-weight-bold;
-  letter-spacing: tokens.$letter-spacing-eyebrow;
+  color: var(--color-primary-strong);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  letter-spacing: var(--letter-spacing-eyebrow);
   text-transform: uppercase;
 }
 
 .hero {
   display: grid;
-  grid-template-columns: tokens.$hero-columns;
-  gap: tokens.$space-6;
-  padding: tokens.$space-8;
+  grid-template-columns: var(--layout-hero-columns);
+  gap: var(--space-6);
+  padding: var(--space-8);
 }
 
 .hero__content {
   display: grid;
-  gap: tokens.$space-4;
+  gap: var(--space-4);
   align-content: start;
 }
 
 .hero h1 {
-  max-width: tokens.$hero-heading-max-width;
-  font-size: tokens.$font-size-display;
-  line-height: tokens.$line-height-display;
-  letter-spacing: tokens.$letter-spacing-display;
+  max-width: var(--measure-hero-heading);
+  font-size: var(--font-size-display);
+  line-height: var(--line-height-display);
+  letter-spacing: var(--letter-spacing-display);
 }
 
 .hero__copy {
-  max-width: tokens.$hero-copy-max-width;
-  color: tokens.$color-text-muted;
-  font-size: tokens.$font-size-lg;
-  line-height: tokens.$line-height-relaxed;
+  max-width: var(--measure-hero-copy);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-relaxed);
 }
 
 .hero__actions {
   display: flex;
   flex-wrap: wrap;
-  gap: tokens.$space-3;
+  gap: var(--space-3);
 }
 
 .button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: tokens.$button-height-md;
-  padding: 0 tokens.$space-4;
-  border-radius: tokens.$radius-pill;
+  min-height: var(--size-button-md);
+  padding: 0 var(--space-4);
+  border-radius: var(--radius-pill);
   border: 1px solid transparent;
   text-decoration: none;
-  font-size: tokens.$font-size-sm;
-  font-weight: tokens.$font-weight-semibold;
-  transition: tokens.$motion-transition-button;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  transition: var(--motion-transition-button);
 }
 
 .button:hover {
-  transform: tokens.$motion-lift-hover;
+  transform: var(--motion-lift-hover);
 }
 
 .button--primary {
-  background: tokens.$color-primary;
-  color: tokens.$color-white;
-  box-shadow: tokens.$shadow-sm;
+  background: var(--color-primary);
+  color: var(--color-white);
+  box-shadow: var(--shadow-sm);
 }
 
 .button--primary:hover {
-  background: tokens.$color-primary-strong;
-  box-shadow: tokens.$shadow-md;
+  background: var(--color-primary-strong);
+  box-shadow: var(--shadow-md);
 }
 
 .button--secondary {
-  border-color: tokens.$color-border;
-  background: tokens.$surface-button-secondary;
-  color: tokens.$color-text;
+  border-color: var(--color-border);
+  background: var(--surface-button-secondary);
+  color: var(--color-text);
 }
 
 .button--secondary:hover {
-  border-color: tokens.$border-accent-soft;
-  background: tokens.$surface-button-secondary-hover;
-  color: tokens.$color-primary-strong;
+  border-color: var(--border-accent-soft);
+  background: var(--surface-button-secondary-hover);
+  color: var(--color-primary-strong);
 }
 
 .hero__aside {
-  padding: tokens.$space-5;
+  padding: var(--space-5);
   display: grid;
   align-content: start;
-  gap: tokens.$space-4;
+  gap: var(--space-4);
 }
 
 .metric-list {
   display: grid;
-  gap: tokens.$space-3;
+  gap: var(--space-3);
 }
 
 .metric {
   display: grid;
-  gap: tokens.$space-1;
-  padding-top: tokens.$space-3;
-  border-top: 1px solid tokens.$border-strong;
+  gap: var(--space-1);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--border-strong);
 }
 
 .metric:first-child {
@@ -224,79 +258,79 @@ dd {
 }
 
 .metric dt {
-  color: tokens.$color-text-muted;
-  font-size: tokens.$font-size-sm;
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
 }
 
 .metric dd {
-  font-size: tokens.$font-size-metric;
-  line-height: tokens.$line-height-solid;
-  font-weight: tokens.$font-weight-bold;
+  font-size: var(--font-size-metric);
+  line-height: var(--line-height-solid);
+  font-weight: var(--font-weight-bold);
 }
 
 .feature-grid {
   display: grid;
-  grid-template-columns: tokens.$feature-grid-columns;
-  gap: tokens.$space-4;
+  grid-template-columns: var(--layout-feature-grid-columns);
+  gap: var(--space-4);
 }
 
 .feature-card {
-  padding: tokens.$space-5;
+  padding: var(--space-5);
   display: grid;
-  gap: tokens.$space-3;
+  gap: var(--space-3);
 }
 
 .feature-card h2,
 .roadmap h2 {
-  font-size: tokens.$font-size-heading;
-  line-height: tokens.$line-height-heading;
+  font-size: var(--font-size-heading);
+  line-height: var(--line-height-heading);
 }
 
 .feature-card p,
 .roadmap p,
 .roadmap li {
-  color: tokens.$color-text-muted;
-  line-height: tokens.$line-height-relaxed;
+  color: var(--color-text-muted);
+  line-height: var(--line-height-relaxed);
 }
 
 .roadmap {
-  padding: tokens.$space-6;
+  padding: var(--space-6);
   display: grid;
-  grid-template-columns: tokens.$roadmap-columns;
-  gap: tokens.$space-6;
+  grid-template-columns: var(--layout-roadmap-columns);
+  gap: var(--space-6);
   align-items: start;
 }
 
 .roadmap__copy {
   display: grid;
-  gap: tokens.$space-3;
+  gap: var(--space-3);
 }
 
 .roadmap__list {
   margin: 0;
-  padding-left: tokens.$space-5;
+  padding-left: var(--space-5);
   display: grid;
-  gap: tokens.$space-2;
+  gap: var(--space-2);
 }
 
 .roadmap router-outlet {
   display: none;
 }
 
-@media (max-width: tokens.$breakpoint-lg) {
+@media (max-width: 64rem) {
   .hero,
   .roadmap {
-    grid-template-columns: tokens.$single-column;
+    grid-template-columns: 1fr;
   }
 
   .feature-grid {
-    grid-template-columns: tokens.$single-column;
+    grid-template-columns: 1fr;
   }
 }
 
-@media (max-width: tokens.$breakpoint-md) {
+@media (max-width: 48rem) {
   .app-shell {
-    padding: tokens.$space-4;
+    padding: var(--space-4);
   }
 
   .topbar {
@@ -307,21 +341,23 @@ dd {
   .hero,
   .feature-card,
   .roadmap {
-    padding: tokens.$space-5;
+    padding: var(--space-5);
   }
 }
 
-@media (max-width: tokens.$breakpoint-sm) {
+@media (max-width: 40rem) {
   .hero h1 {
-    font-size: tokens.$font-size-display-compact;
+    font-size: var(--font-size-display-compact);
   }
 
   .topbar__nav,
-  .hero__actions {
+  .hero__actions,
+  .theme-switcher {
     width: 100%;
   }
 
   .topbar__nav a,
+  .theme-switcher__button,
   .button {
     width: 100%;
   }

@@ -1,0 +1,12 @@
+:root {
+  --layout-container-max: 70rem;
+  --layout-hero-columns: minmax(0, 1.6fr) minmax(18rem, 0.9fr);
+  --layout-roadmap-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  --layout-feature-grid-columns: repeat(3, minmax(0, 1fr));
+
+  --size-brand-mark: 3.25rem;
+  --size-button-md: 3rem;
+
+  --measure-hero-heading: 12ch;
+  --measure-hero-copy: 56ch;
+}

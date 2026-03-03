@@ -1,20 +1,20 @@
 # tokens
 
-Shared SCSS design tokens for the UI layer.
+Shared CSS design tokens for the UI layer.
 
-Usage from app or feature styles:
+Include the token bundle as a global stylesheet:
 
-```scss
-@use 'tokens' as tokens;
+```json
+"styles": ["libs/ui/tokens/src/tokens.css"]
 ```
 
 Example:
 
-```scss
+```css
 .card {
-  padding: tokens.$space-4;
-  border-radius: tokens.$radius-lg;
-  box-shadow: tokens.$shadow-sm;
-  background: tokens.$color-surface;
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  background: var(--color-surface);
 }
 ```

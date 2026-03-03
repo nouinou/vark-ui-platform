@@ -14,16 +14,13 @@
         "browser": "apps/vark/src/main.ts",
         "tsConfig": "apps/vark/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
-        "stylePreprocessorOptions": {
-          "includePaths": ["libs/ui/tokens/src"]
-        },
         "assets": [
           {
             "glob": "**/*",
             "input": "apps/vark/public"
           }
         ],
-        "styles": ["apps/vark/src/styles.scss"]
+        "styles": ["libs/ui/tokens/src/tokens.css", "apps/vark/src/styles.scss"]
       },
       "configurations": {
         "production": {

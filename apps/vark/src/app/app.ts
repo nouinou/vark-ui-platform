@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { getStoredTheme, setTheme, type ThemeName } from '@vark-ui/theme';
 
 @Component({
   imports: [RouterModule],
@@ -9,4 +10,10 @@ import { RouterModule } from '@angular/router';
 })
 export class App {
   protected title = 'vark';
+  protected activeTheme: ThemeName = getStoredTheme() ?? 'system';
+
+  protected selectTheme(theme: ThemeName) {
+    setTheme(theme);
+    this.activeTheme = theme;
+  }
 }

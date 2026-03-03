@@ -1,0 +1,40 @@
+:root,
+:root[data-theme='light'] {
+  --color-surface: var(--color-white);
+  --color-surface-muted: var(--color-slate-50);
+  --color-border: var(--color-slate-200);
+  --color-text: var(--color-slate-900);
+  --color-text-muted: var(--color-slate-500);
+  --color-primary: var(--color-brand-500);
+  --color-primary-strong: var(--color-brand-600);
+
+  --surface-app-background: var(--color-surface-muted);
+  --surface-nav: rgba(255, 255, 255, 0.68);
+  --surface-nav-hover: rgba(238, 247, 255, 0.92);
+  --surface-button-secondary: rgba(255, 255, 255, 0.78);
+  --surface-button-secondary-hover: rgba(238, 247, 255, 0.9);
+
+  --surface-panel-top: rgba(255, 255, 255, 0.96);
+  --surface-panel-bottom: rgba(248, 250, 252, 0.92);
+  --surface-panel-inset-top: rgba(238, 247, 255, 0.9);
+  --surface-panel-inset-bottom: rgba(255, 255, 255, 0.95);
+
+  --border-subtle: rgba(226, 232, 240, 0.8);
+  --border-strong: rgba(226, 232, 240, 0.9);
+  --border-accent-soft: rgba(29, 140, 248, 0.28);
+  --border-accent: rgba(29, 140, 248, 0.4);
+
+  --recipe-app-shell-background:
+    radial-gradient(circle at top left, var(--color-brand-100) 0%, transparent 32%),
+    radial-gradient(circle at 85% 15%, rgba(22, 163, 74, 0.18) 0%, transparent 24%),
+    linear-gradient(180deg, var(--color-slate-50) 0%, var(--color-brand-50) 100%);
+
+  --recipe-brand-mark-background:
+    linear-gradient(135deg, var(--color-brand-500), var(--color-success-500));
+
+  --recipe-panel-surface:
+    linear-gradient(180deg, var(--surface-panel-top), var(--surface-panel-bottom));
+
+  --recipe-panel-inset-surface:
+    linear-gradient(180deg, var(--surface-panel-inset-top), var(--surface-panel-inset-bottom));
+}

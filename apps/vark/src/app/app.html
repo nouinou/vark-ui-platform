@@ -13,6 +13,33 @@
       <a href="/">Tokens</a>
       <a href="/">Workflow</a>
     </nav>
+
+    <div class="theme-switcher" aria-label="Theme switcher">
+      <button
+        type="button"
+        class="theme-switcher__button"
+        [class.theme-switcher__button--active]="activeTheme === 'light'"
+        (click)="selectTheme('light')"
+      >
+        Light
+      </button>
+      <button
+        type="button"
+        class="theme-switcher__button"
+        [class.theme-switcher__button--active]="activeTheme === 'dark'"
+        (click)="selectTheme('dark')"
+      >
+        Dark
+      </button>
+      <button
+        type="button"
+        class="theme-switcher__button"
+        [class.theme-switcher__button--active]="activeTheme === 'system'"
+        (click)="selectTheme('system')"
+      >
+        System
+      </button>
+    </div>
   </header>
 
   <main class="app-main">
