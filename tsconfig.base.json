@@ -15,6 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@vark/ui-tokens": ["libs/ui/tokens/src/index.ts"],
       "@vark/ui-theme": ["libs/ui/theme/src/index.ts"],
       "@vark/ui-components": ["libs/ui/components/index.ts"],
       "@vark/ui-components/button": ["libs/ui/components/button/src/index.ts"],

@@ -5,7 +5,11 @@
   "engines": {
     "node": "^20.19.0 || ^22.12.0 || >=24.0.0"
   },
-  "scripts": {},
+  "scripts": {
+    "check:all": "npm run lint:all && npm run typecheck:all",
+    "lint:all": "nx run-many --target=lint --all",
+    "typecheck:all": "nx run-many --target=typecheck --all"
+  },
   "private": true,
   "dependencies": {
     "@angular/common": "~20.2.0",
