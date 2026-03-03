@@ -1,66 +1,101 @@
 <div class="app-shell">
-  <header class="app-header">
-    <div class="brand-block">
-      <span class="brand-mark">V</span>
-      <div>
-        <p class="eyebrow">Bug Tracking Platform</p>
-        <h1>Vark</h1>
-      </div>
-    </div>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Vark home">
+      <span class="brand__mark">V</span>
+      <span class="brand__copy">
+        <span class="brand__name">Vark</span>
+        <span class="brand__tag">UI tokens in production</span>
+      </span>
+    </a>
 
-    <nav class="header-nav" aria-label="Primary">
-      <a href="/">Dashboard</a>
-      <a href="/">Tickets</a>
-      <a href="/">Teams</a>
+    <nav class="topbar__nav" aria-label="Primary">
+      <a href="/">Overview</a>
+      <a href="/">Tokens</a>
+      <a href="/">Workflow</a>
     </nav>
   </header>
 
   <main class="app-main">
-    <section class="hero">
-      <p class="eyebrow">Workspace Overview</p>
-      <h2>Track issues, manage priorities, and keep releases moving.</h2>
-      <p class="hero-copy">
-        Vark gives product and engineering teams one place to triage incoming bugs,
-        organize tickets, and follow delivery status from report to resolution.
-      </p>
+    <section class="hero panel">
+      <div class="hero__content">
+        <p class="eyebrow">Bug operations platform</p>
+        <h1>Token-backed UI for fast triage, clean handoff, and visible risk.</h1>
+        <p class="hero__copy">
+          The app shell now reads directly from the shared UI token library for
+          color, spacing, type, radius, shadow, and responsive behavior.
+        </p>
+
+        <div class="hero__actions">
+          <a class="button button--primary" href="/">Review queue</a>
+          <a class="button button--secondary" href="/">Inspect tokens</a>
+        </div>
+      </div>
+
+      <div class="hero__aside panel panel--inset">
+        <p class="eyebrow">Live snapshot</p>
+        <dl class="metric-list">
+          <div class="metric">
+            <dt>Open defects</dt>
+            <dd>48</dd>
+          </div>
+          <div class="metric">
+            <dt>Waiting on QA</dt>
+            <dd>16</dd>
+          </div>
+          <div class="metric">
+            <dt>Escalations</dt>
+            <dd>5</dd>
+          </div>
+        </dl>
+      </div>
     </section>
 
-    <section class="status-grid" aria-label="Ticket summary">
-      <article class="status-card">
-        <span class="status-label">Open tickets</span>
-        <strong>48</strong>
-        <p>Newly reported issues awaiting triage across all active projects.</p>
-      </article>
-
-      <article class="status-card">
-        <span class="status-label">In progress</span>
-        <strong>16</strong>
-        <p>Assigned bugs currently being investigated or fixed by the team.</p>
-      </article>
-
-      <article class="status-card">
-        <span class="status-label">Critical</span>
-        <strong>5</strong>
-        <p>High-severity defects affecting production flows and release quality.</p>
-      </article>
-    </section>
-
-    <section class="workspace-panel">
-      <div>
-        <p class="eyebrow">Current Focus</p>
-        <h3>Keep triage fast and visible</h3>
+    <section class="feature-grid" aria-label="UI token coverage">
+      <article class="feature-card panel">
+        <p class="eyebrow">Color</p>
+        <h2>Semantic surfaces and readable contrast</h2>
         <p>
-          Start with a simple dashboard layout, then layer in queues, filters,
-          assignees, and SLA-focused views for support and engineering teams.
+          Panels, text, borders, and action states all resolve from the shared
+          color tokens instead of one-off component values.
+        </p>
+      </article>
+
+      <article class="feature-card panel">
+        <p class="eyebrow">Spacing</p>
+        <h2>Consistent rhythm across the shell</h2>
+        <p>
+          Layout gaps, paddings, and section spacing follow the same token scale,
+          which makes the shell easier to extend without visual drift.
+        </p>
+      </article>
+
+      <article class="feature-card panel">
+        <p class="eyebrow">Type and depth</p>
+        <h2>Shared typography, radius, and shadows</h2>
+        <p>
+          Card corners, elevation, and headline sizing now come from a reusable
+          source instead of hard-coded component styling.
+        </p>
+      </article>
+    </section>
+
+    <section class="roadmap panel">
+      <div class="roadmap__copy">
+        <p class="eyebrow">Current focus</p>
+        <h2>Move the rest of the app toward the same token contract.</h2>
+        <p>
+          Next targets are global theme variables, component primitives, and
+          semantic states for alerting, status badges, and issue priority.
         </p>
       </div>
+
+      <ul class="roadmap__list">
+        <li>Promote raw tokens into semantic theme aliases.</li>
+        <li>Build shared card, button, and status badge primitives.</li>
+        <li>Connect charts and tables to the same responsive spacing scale.</li>
+      </ul>
 
       <router-outlet></router-outlet>
     </section>
   </main>
-
-  <footer class="app-footer">
-    <p>Vark UI Platform</p>
-    <span>Built for bug tracking and ticket management workflows.</span>
-  </footer>
 </div>

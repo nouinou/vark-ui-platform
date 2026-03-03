@@ -1,0 +1,13 @@
+// Shared layout and sizing values used by app shells and component primitives.
+$container-max: 70rem !default;
+
+$hero-columns: minmax(0, 1.6fr) minmax(18rem, 0.9fr) !default;
+$roadmap-columns: minmax(0, 1.2fr) minmax(0, 1fr) !default;
+$feature-grid-columns: repeat(3, minmax(0, 1fr)) !default;
+$single-column: 1fr !default;
+
+$brand-mark-size: 3.25rem !default;
+$button-height-md: 3rem !default;
+
+$hero-heading-max-width: 12ch !default;
+$hero-copy-max-width: 56ch !default;

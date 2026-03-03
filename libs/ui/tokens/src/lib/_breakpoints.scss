@@ -1,0 +1,13 @@
+$breakpoint-xs: 30rem !default;
+$breakpoint-sm: 40rem !default;
+$breakpoint-md: 48rem !default;
+$breakpoint-lg: 64rem !default;
+$breakpoint-xl: 80rem !default;
+
+$breakpoints: (
+  'xs': $breakpoint-xs,
+  'sm': $breakpoint-sm,
+  'md': $breakpoint-md,
+  'lg': $breakpoint-lg,
+  'xl': $breakpoint-xl,
+) !default;

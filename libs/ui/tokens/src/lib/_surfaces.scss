@@ -1,0 +1,20 @@
+@use 'sass:color';
+@use 'colors' as colors;
+
+$surface-app-background: colors.$color-surface-muted !default;
+
+$surface-nav: color.change(colors.$color-white, $alpha: 0.68) !default;
+$surface-nav-hover: color.change(colors.$color-brand-50, $alpha: 0.92) !default;
+$surface-button-secondary: color.change(colors.$color-white, $alpha: 0.78) !default;
+$surface-button-secondary-hover: color.change(colors.$color-brand-50, $alpha: 0.9) !default;
+
+$surface-panel-top: color.change(colors.$color-white, $alpha: 0.96) !default;
+$surface-panel-bottom: color.change(colors.$color-surface-muted, $alpha: 0.92) !default;
+$surface-panel-inset-top: color.change(colors.$color-brand-50, $alpha: 0.9) !default;
+$surface-panel-inset-bottom: color.change(colors.$color-white, $alpha: 0.95) !default;
+
+$border-subtle: color.change(colors.$color-border, $alpha: 0.8) !default;
+$border-strong: color.change(colors.$color-border, $alpha: 0.9) !default;
+$border-accent-soft: color.change(colors.$color-primary, $alpha: 0.28) !default;
+$border-accent: color.change(colors.$color-primary, $alpha: 0.4) !default;
+
