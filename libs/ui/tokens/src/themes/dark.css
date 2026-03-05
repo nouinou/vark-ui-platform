@@ -8,6 +8,8 @@
   --color-primary-strong: var(--color-brand-500);
   --color-on-primary: var(--color-slate-900);
   --color-on-primary-strong: var(--color-white);
+  --color-on-secondary: var(--color-slate-50);
+  --color-on-secondary-hover: var(--color-white);
   --color-on-selected: var(--color-slate-900);
   --color-on-selected-hover: var(--color-white);
 
