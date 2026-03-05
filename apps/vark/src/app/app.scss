@@ -251,6 +251,66 @@ dd {
   display: none;
 }
 
+.tokens-preview {
+  padding: var(--space-6);
+  display: grid;
+  gap: var(--space-4);
+}
+
+.tokens-preview__header {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.tokens-preview__grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: var(--space-3);
+}
+
+.token-swatch {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.token-swatch__sample {
+  height: calc(var(--size-button-md) + var(--space-4));
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--preview-bg, var(--color-text));
+}
+
+.token-swatch__sample--surface-app-background {
+  --preview-bg: var(--surface-app-background);
+}
+
+.token-swatch__sample--surface-control {
+  --preview-bg: var(--surface-control, var(--color-border));
+}
+
+.token-swatch__sample--color-text {
+  --preview-bg: var(--color-text);
+}
+
+.token-swatch__sample--color-primary {
+  --preview-bg: var(--color-primary);
+}
+
+.token-swatch__sample--color-border {
+  --preview-bg: var(--color-border);
+}
+
+.token-swatch__sample--color-danger {
+  --preview-bg: var(--color-danger, var(--color-text));
+}
+
+.token-swatch__label {
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-normal);
+  color: var(--color-text-muted);
+  word-break: break-word;
+}
+
 @media (max-width: 64rem) {
   .hero,
   .roadmap {
@@ -259,6 +319,10 @@ dd {
 
   .feature-grid {
     grid-template-columns: 1fr;
+  }
+
+  .tokens-preview__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
@@ -274,7 +338,8 @@ dd {
 
   .hero,
   .feature-card,
-  .roadmap {
+  .roadmap,
+  .tokens-preview {
     padding: var(--space-5);
   }
 }
@@ -294,5 +359,9 @@ dd {
   .theme-switcher__button,
   .button {
     width: 100%;
+  }
+
+  .tokens-preview__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
