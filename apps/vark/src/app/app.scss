@@ -270,38 +270,48 @@ dd {
 
 .token-swatch {
   display: grid;
+  margin: var(--space-0);
   gap: var(--space-2);
 }
 
 .token-swatch__sample {
-  height: calc(var(--size-button-md) + var(--space-4));
+  height: var(--space-16);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
-  background: var(--preview-bg, var(--color-text));
 }
 
 .token-swatch__sample--surface-app-background {
-  --preview-bg: var(--surface-app-background);
+  background: var(--surface-app-background);
 }
 
 .token-swatch__sample--surface-control {
-  --preview-bg: var(--surface-control, var(--color-border));
+  background: var(--surface-control, var(--color-border));
 }
 
 .token-swatch__sample--color-text {
-  --preview-bg: var(--color-text);
+  background: var(--surface-app-background);
+  color: var(--color-text);
+  display: grid;
+  place-items: center;
 }
 
 .token-swatch__sample--color-primary {
-  --preview-bg: var(--color-primary);
+  background: var(--color-primary);
 }
 
 .token-swatch__sample--color-border {
-  --preview-bg: var(--color-border);
+  background: transparent;
+  border-width: var(--space-1);
 }
 
 .token-swatch__sample--color-danger {
-  --preview-bg: var(--color-danger, var(--color-text));
+  background: var(--color-danger, var(--color-text));
+}
+
+.token-swatch__marker {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
 }
 
 .token-swatch__label {
