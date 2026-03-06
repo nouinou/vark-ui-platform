@@ -1,5 +1,7 @@
 import { THEME_STORAGE_KEY, type ResolvedThemeName, type ThemeName } from './types';
 
+let detachSystemThemeWatcher: (() => void) | null = null;
+
 function hasDom(): boolean {
   return typeof document !== 'undefined';
 }
@@ -22,6 +24,42 @@ function applyThemeAttribute(theme: ResolvedThemeName): void {
   }
 
   document.documentElement.dataset['theme'] = theme;
+}
+
+function clearSystemThemeWatcher(): void {
+  if (!detachSystemThemeWatcher) {
+    return;
+  }
+
+  detachSystemThemeWatcher();
+  detachSystemThemeWatcher = null;
+}
+
+function ensureSystemThemeWatcher(): void {
+  if (!hasWindow() || detachSystemThemeWatcher) {
+    return;
+  }
+
+  const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+  const applyCurrentSystemTheme = () => {
+    if (getStoredTheme() !== 'system') {
+      return;
+    }
+
+    applyThemeAttribute(mediaQuery.matches ? 'dark' : 'light');
+  };
+
+  const onMediaQueryChange = () => applyCurrentSystemTheme();
+
+  if (typeof mediaQuery.addEventListener === 'function') {
+    mediaQuery.addEventListener('change', onMediaQueryChange);
+    detachSystemThemeWatcher = () => mediaQuery.removeEventListener('change', onMediaQueryChange);
+  } else {
+    mediaQuery.addListener(onMediaQueryChange);
+    detachSystemThemeWatcher = () => mediaQuery.removeListener(onMediaQueryChange);
+  }
+
+  applyCurrentSystemTheme();
 }
 
 export function getStoredTheme(): ThemeName | null {
@@ -52,6 +90,12 @@ export function setTheme(theme: ThemeName): ResolvedThemeName {
 
   if (hasWindow()) {
     window.localStorage.setItem(THEME_STORAGE_KEY, theme);
+  }
+
+  if (theme === 'system') {
+    ensureSystemThemeWatcher();
+  } else {
+    clearSystemThemeWatcher();
   }
 
   return resolvedTheme;
