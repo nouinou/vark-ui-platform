@@ -7,6 +7,10 @@
   },
   "scripts": {
     "check:all": "npm run lint:all && npm run typecheck:all",
+    "format": "nx format:write --all --sort-root-tsconfig-paths=false",
+    "format:check": "nx format:check --all --sort-root-tsconfig-paths=false",
+    "format:affected": "nx format:write --base=origin/main --head=HEAD --sort-root-tsconfig-paths=false && sh -c 'FILES=\"$(git diff --name-only --diff-filter=ACMR origin/main...HEAD)\"; if [ -n \"$FILES\" ]; then prettier --write $FILES; else echo \"No affected files for prettier\"; fi'",
+    "format:affected:check": "nx format:check --base=origin/main --head=HEAD --sort-root-tsconfig-paths=false && sh -c 'FILES=\"$(git diff --name-only --diff-filter=ACMR origin/main...HEAD)\"; if [ -n \"$FILES\" ]; then prettier --check $FILES; else echo \"No affected files for prettier\"; fi'",
     "lint:all": "nx run-many --target=lint --all",
     "typecheck:all": "nx run-many --target=typecheck --all"
   },

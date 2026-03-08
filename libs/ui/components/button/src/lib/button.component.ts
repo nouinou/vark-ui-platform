@@ -11,8 +11,7 @@ export type ButtonType = 'button' | 'submit' | 'reset';
   styleUrl: './button.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
-    '[class]':
-      '"variant-" + variant() + " size-" + size() + (selected() ? " is-selected" : "")',
+    '[class]': '"variant-" + variant() + " size-" + size() + (selected() ? " is-selected" : "")',
   },
 })
 export class ButtonComponent {

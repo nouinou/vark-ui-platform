@@ -37,12 +37,21 @@
     radial-gradient(circle at 85% 15%, rgba(22, 163, 74, 0.18) 0%, transparent 24%),
     linear-gradient(180deg, var(--color-slate-50) 0%, var(--color-brand-50) 100%);
 
-  --recipe-brand-mark-background:
-    linear-gradient(135deg, var(--color-brand-500), var(--color-success-500));
+  --recipe-brand-mark-background: linear-gradient(
+    135deg,
+    var(--color-brand-500),
+    var(--color-success-500)
+  );
 
-  --recipe-panel-surface:
-    linear-gradient(180deg, var(--surface-panel-top), var(--surface-panel-bottom));
+  --recipe-panel-surface: linear-gradient(
+    180deg,
+    var(--surface-panel-top),
+    var(--surface-panel-bottom)
+  );
 
-  --recipe-panel-inset-surface:
-    linear-gradient(180deg, var(--surface-panel-inset-top), var(--surface-panel-inset-bottom));
+  --recipe-panel-inset-surface: linear-gradient(
+    180deg,
+    var(--surface-panel-inset-top),
+    var(--surface-panel-inset-bottom)
+  );
 }

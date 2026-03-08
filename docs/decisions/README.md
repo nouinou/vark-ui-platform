@@ -6,19 +6,21 @@ Use ADRs to capture **why** we made a choice, not only **what** we changed.
 
 ## Index
 
-| ADR | Title | Status |
-| --- | --- | --- |
-| [0001](./0001-platform-goals.md) | vark-ui-platform goals and structure | Accepted |
+| ADR                               | Title                                   | Status   |
+| --------------------------------- | --------------------------------------- | -------- |
+| [0001](./0001-platform-goals.md)  | vark-ui-platform goals and structure    | Accepted |
 | [0002](./0002-dialog-contract.md) | Dialog component contract (Angular CDK) | Accepted |
 
 ## When to add an ADR
 
 Add an ADR when a decision is:
+
 - architectural (affects multiple projects/libraries)
 - difficult to reverse
 - likely to be debated again in future
 
 Examples:
+
 - token/theming contract changes
 - component API contracts
 - repo-level constraints (boundaries, CI policy)
