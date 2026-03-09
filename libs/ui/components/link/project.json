@@ -1,9 +1,9 @@
 {
-  "name": "ui-components-link",
+  "name": "ui-link",
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/ui/components/link/src",
   "projectType": "library",
-  "tags": [],
+  "tags": ["scope:ui", "type:ui", "layer:primitive"],
   "// targets": "to see all targets run: nx show project ui-components-link --web",
   "targets": {
     "lint": {
