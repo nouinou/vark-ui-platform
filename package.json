@@ -6,11 +6,16 @@
     "node": "^20.19.0 || ^22.12.0 || >=24.0.0"
   },
   "scripts": {
+    "lint:affected": "nx affected -t lint --base=origin/main --head=HEAD",
+    "typecheck:affected": "nx affected -t typecheck --base=origin/main --head=HEAD",
+    "build:affected": "nx affected -t build --base=origin/main --head=HEAD",
+    "test:affected": "nx affected -t test --base=origin/main --head=HEAD",
+    "check:affected": "npm run lint:affected && npm run typecheck:affected",
+    "format:affected": "nx format:write --base=origin/main --head=HEAD --sort-root-tsconfig-paths=false && git diff -z --name-only --diff-filter=ACMR origin/main...HEAD | xargs -0 -r prettier --write || echo \"No affected files for prettier\"",
+    "format:affected:check": "nx format:check --base=origin/main --head=HEAD --sort-root-tsconfig-paths=false && git diff -z --name-only --diff-filter=ACMR origin/main...HEAD | xargs -0 -r prettier --check || echo \"No affected files for prettier\"",
     "check:all": "npm run lint:all && npm run typecheck:all",
-    "format": "nx format:write --all --sort-root-tsconfig-paths=false",
-    "format:check": "nx format:check --all --sort-root-tsconfig-paths=false",
-    "format:affected": "nx format:write --base=origin/main --head=HEAD --sort-root-tsconfig-paths=false && sh -c 'FILES=\"$(git diff --name-only --diff-filter=ACMR origin/main...HEAD)\"; if [ -n \"$FILES\" ]; then prettier --write $FILES; else echo \"No affected files for prettier\"; fi'",
-    "format:affected:check": "nx format:check --base=origin/main --head=HEAD --sort-root-tsconfig-paths=false && sh -c 'FILES=\"$(git diff --name-only --diff-filter=ACMR origin/main...HEAD)\"; if [ -n \"$FILES\" ]; then prettier --check $FILES; else echo \"No affected files for prettier\"; fi'",
+    "format:all": "nx format:write --all --sort-root-tsconfig-paths=false",
+    "format:check:all": "nx format:check --all --sort-root-tsconfig-paths=false",
     "lint:all": "nx run-many --target=lint --all",
     "typecheck:all": "nx run-many --target=typecheck --all"
   },
