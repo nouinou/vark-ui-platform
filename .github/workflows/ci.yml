@@ -38,3 +38,6 @@ jobs:
 
       - name: Run affected checks
         run: npm run check:affected
+      
+      - name: Build affected
+        run: npm run build:affected
