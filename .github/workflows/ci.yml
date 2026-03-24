@@ -1,5 +1,8 @@
 name: CI
 
+env:
+  NX_OUTPUT_STYLE: static
+
 on:
   pull_request:
   push:
@@ -43,6 +46,14 @@ jobs:
         run: |
           echo "NX_BASE=${{ github.event.before }}" >> $GITHUB_ENV
           echo "NX_HEAD=${{ github.sha }}" >> $GITHUB_ENV
+
+      - name: Print NX_BASE/NX_HEAD
+        run: |
+          echo "NX_BASE=$NX_BASE"
+          echo "NX_HEAD=$NX_HEAD"
+      
+      - name: Show affected projects (debug)
+        run: nx print-affected --base=$NX_BASE --head=$NX_HEAD
 
       - name: Run affected checks
         run: npm run check:affected
