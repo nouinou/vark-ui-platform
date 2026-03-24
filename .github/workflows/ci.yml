@@ -53,7 +53,7 @@ jobs:
           echo "NX_HEAD=$NX_HEAD"
       
       - name: Show affected projects (debug)
-        run: npx nx print-affected --base=$NX_BASE --head=$NX_HEAD
+        run: npx nx show projects --affected --base=$NX_BASE --head=$NX_HEAD
 
       - name: Run affected checks
         run: npm run check:affected
