@@ -21,6 +21,14 @@ jobs:
           node-version: 22
           cache: npm
 
+      - name: Cache Nx
+        uses: actions/cache@v4
+        with:
+          path: .nx/cache
+          key: ${{ runner.os }}-nx-${{ hashFiles('**/package-lock.json', 'nx.json', 'project.json', '**/project.json', 'tsconfig.base.json', 'eslint.config.*') }}
+          restore-keys: |
+            ${{ runner.os }}-nx-
+
       - name: Install dependencies
         run: npm ci
 
