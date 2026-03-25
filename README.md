@@ -52,14 +52,21 @@ Already implemented:
 - **Runtime theming** (light/dark/system) without rebuild
 - **Real consumer adoption** (app consumes tokens + theme + components)
 - **Smoke-test UI** (tokens preview) to validate theme + tokens quickly
+- Nx **module boundaries** and tags (architecture enforcement)
+- CI quality gates (affected lint/typecheck/build) + `nx affected`
 
 Planned next (coming weeks):
 
-- Nx **module boundaries** and tags (architecture enforcement)
-- CI quality gates (lint/typecheck/tests/build/e2e) + `nx affected`
 - Playwright E2E flows that protect releases
 - Storybook documentation conventions for the Design System
-- Accessibility-first flagship component (Dialog or Form Field foundation)
+- Accessibility-first flagship component (Dialog) implementation + tests
+
+---
+
+## CI
+
+CI runs affected lint/typecheck/format checks and affected builds on PRs.  
+See `docs/ci.md` for details and how to reproduce locally.
 
 ---
 
@@ -68,6 +75,8 @@ Planned next (coming weeks):
 See `docs/decisions/` for Architecture Decision Records (ADRs), starting with:
 
 - `docs/decisions/0001-platform-goals.md`
+- `docs/decisions/0002-dialog-contract.md`
+- `docs/decisions/0003-module-boundaries.md`
 
 ---
 
