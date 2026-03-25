@@ -1,45 +1,58 @@
 # Nx affected workflow
 
-This repo uses Nx’s **affected** workflow to run checks only for projects impacted by a change.
-This is the foundation for fast CI (and later: caching + parallelization).
+This repo uses Nx's `affected` workflow to run checks only for projects impacted by a change.
 
----
+## How affected works
 
-## Recommended workflow (use npm scripts)
+Nx compares two git revisions:
 
-### Affected quality checks
+- `base`: the starting commit
+- `head`: the ending commit
 
-In CI, affected checks compare `NX_BASE` and `NX_HEAD`.
-Locally, branch-based commands compare `origin/main...HEAD`.
+From that diff, Nx determines which projects are affected and runs only the requested targets for those projects.
 
-- `npm run check:affected` → lint + typecheck + format (affected only)
+In this repo:
+
+- branch-based scripts compare `origin/main...HEAD`
+- `:local` scripts use `--uncommitted`
+
+## Recommended local commands
+
+Use these when you want to validate the current branch against `origin/main`.
+
+- `npm run check:affected` -> lint + typecheck + format check for affected projects/files
 - `npm run lint:affected`
 - `npm run typecheck:affected`
 - `npm run build:affected`
 - `npm run test:affected`
+- `npm run format:affected`
+- `npm run format:affected:check`
 
-For local checks against uncommitted changes, prefer `:local`.
+Use these when you want to validate only uncommitted changes in your working tree.
 
-- `npm run check:affected:local` → lint + typecheck + format (uncommitted only)
+- `npm run check:affected:local`
 - `npm run lint:affected:local`
 - `npm run typecheck:affected:local`
 - `npm run build:affected:local`
 - `npm run test:affected:local`
+- `npm run format:affected:local`
+- `npm run format:affected:check:local`
 
-### Affected formatting
+## Useful debug commands
 
-- `npm run format:affected` → format only changed files (Nx formatter + Prettier)
-- `npm run format:affected:check` → check formatting only for changed files
-- `npm run format:affected:local` → format only uncommitted files
-- `npm run format:affected:check:local` → check formatting only for uncommitted files
+When affected output is surprising, these commands are the first things to run:
 
----
+- `git diff --name-only origin/main...HEAD`
+- `npx nx show projects --affected --base=origin/main --head=HEAD`
+- `npx nx affected -t lint --base=origin/main --head=HEAD`
 
-## Full-repo commands (use sparingly)
+If you want CI workflow details, document them separately in `docs/ci.md`.
 
-Use these when you need a full sweep (e.g., before a major release or after refactors):
+## Full-repo commands
 
-- `npm run check:all` → lint + typecheck for all projects
+Use these sparingly when you need a full sweep instead of an affected run.
+
+- `npm run check:all`
 - `npm run lint:all`
 - `npm run typecheck:all`
 - `npm run format:all`
