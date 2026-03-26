@@ -63,10 +63,12 @@ Planned next (coming weeks):
 
 ---
 
-## CI
+## CI and Quality workflow
 
-CI runs affected lint/typecheck/format checks and affected builds on PRs.  
-See `docs/ci.md` for details and how to reproduce locally.
+CI runs affected lint/typecheck/format checks and affected builds on PRs.
+
+- See `docs/affected.md` for Nx affected commands and local debugging
+- See `docs/ci.md` for the GitHub Actions workflow and how to reproduce CI locally
 
 ---
 
