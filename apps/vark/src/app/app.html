@@ -1,5 +1,5 @@
 <div class="app-shell">
-  <header class="topbar">
+  <header class="topbar" data-testid="app-header">
     <a class="brand" href="/" aria-label="Vark home">
       <span class="brand__mark">V</span>
       <span class="brand__copy">
@@ -14,12 +14,13 @@
       <a href="/">Workflow</a>
     </nav>
 
-    <div class="theme-switcher" aria-label="Theme switcher">
+    <div class="theme-switcher" aria-label="Theme switcher" data-testid="theme-switcher">
       <vark-button
         class="theme-switcher__button"
         variant="ghost"
         [selected]="activeTheme === 'light'"
         (click)="selectTheme('light')"
+        data-testid="btn-theme-light"
       >
         Light
       </vark-button>
@@ -28,6 +29,7 @@
         variant="ghost"
         [selected]="activeTheme === 'dark'"
         (click)="selectTheme('dark')"
+        data-testid="btn-theme-dark"
       >
         Dark
       </vark-button>
@@ -36,6 +38,7 @@
         variant="ghost"
         [selected]="activeTheme === 'system'"
         (click)="selectTheme('system')"
+        data-testid="btn-theme-system"
       >
         System
       </vark-button>
@@ -77,13 +80,13 @@
       </div>
     </section>
 
-    <section class="tokens-preview panel" aria-label="Tokens preview">
+    <section class="tokens-preview panel" aria-label="Tokens preview" data-testid="tokens-preview">
       <div class="tokens-preview__header">
         <p class="eyebrow">Visual smoke test</p>
         <h2>Tokens Preview</h2>
       </div>
 
-      <div class="tokens-preview__grid">
+      <div class="tokens-preview__grid" data-testid="tokens-grid">
         <figure class="token-swatch">
           <div class="token-swatch__sample token-swatch__sample--surface-app-background"></div>
           <figcaption class="token-swatch__label">--surface-app-background</figcaption>

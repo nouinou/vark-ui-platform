@@ -33,6 +33,17 @@ For non-trivial changes:
 - Prefer small, focused libraries under `libs/ui/components/<name>`.
 - Keep component APIs stable; record breaking decisions as ADRs.
 
+### E2E selector rules (Playwright)
+
+- Use `data-testid` as the primary selector for E2E tests.
+- Do **not** select by CSS classes; classes change for styling and refactors.
+- Avoid `nth()` and deep DOM traversal; prefer stable container test IDs.
+- Use text selectors only for truly stable, user-facing copy (and keep it minimal).
+- Prefer `page.getByTestId()` + `expect(...).toBeVisible()` / `toHaveText()` (Playwright auto-waits).
+- Never use `waitForTimeout`; wait on UI state via `expect` or `locator` conditions.
+- Test IDs should be on semantic “anchors” (header, panels, key buttons), not on every div.
+- Keep test IDs consistent and descriptive: `app-header`, `theme-switcher`, `btn-theme-dark`, `tokens-grid`.
+
 ## Local commands
 
 ```bash
