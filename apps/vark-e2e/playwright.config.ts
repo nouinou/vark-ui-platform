@@ -29,7 +29,6 @@ export default defineConfig({
     reuseExistingServer: true,
     cwd: workspaceRoot,
   },
-  reporter: [['html', { open: 'never' }]],
   projects: [
     {
       name: 'chromium',

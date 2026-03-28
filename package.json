@@ -24,7 +24,8 @@
     "typecheck:all": "nx run-many --target=typecheck --all",
     "check:all": "npm run lint:all && npm run typecheck:all",
     "format:all": "nx format:write --all --sort-root-tsconfig-paths=false",
-    "format:check:all": "nx format:check --all --sort-root-tsconfig-paths=false"
+    "format:check:all": "nx format:check --all --sort-root-tsconfig-paths=false",
+    "e2e:report:vark": "npx playwright show-report dist/.playwright/apps/vark-e2e/playwright-report"
   },
   "private": true,
   "dependencies": {
