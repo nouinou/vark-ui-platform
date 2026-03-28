@@ -34,6 +34,7 @@ For non-trivial changes:
 - Keep component APIs stable; record breaking decisions as ADRs.
 
 ### E2E selector rules (Playwright)
+
 - Use `data-testid` as the primary selector for E2E tests.
 - Do **not** select by CSS classes; classes change for styling and refactors.
 - Avoid `nth()` and deep DOM traversal; prefer stable container test IDs.
