@@ -68,11 +68,18 @@ jobs:
         id: e2e
         run: npm run e2e:affected
         
-      - name: Debug E2E result
+      - name: Debug Playwright files
         if: ${{ always() }}
         run: |
           echo "outcome=${{ steps.e2e.outcome }}"
           echo "conclusion=${{ steps.e2e.conclusion }}"
+          pwd
+          find dist -maxdepth 6 | sort || true
+
+      - name: Debug upload condition
+        if: ${{ always() && steps.e2e.outcome == 'failure' }}
+        run: echo "upload condition matched"
+              
 
       - name: Upload Playwright report
         if: always() && steps.e2e.outcome == 'failure'
@@ -82,6 +89,7 @@ jobs:
           path: dist/.playwright/apps/**/playwright-report
           if-no-files-found: warn
           retention-days: 15
+          include-hidden-files: true
 
       # - name: Fail if E2E failed
       #   if: ${{ steps.e2e.outcome == 'failure' }}
