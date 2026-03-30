@@ -12,7 +12,7 @@ test('create ticket smoke flow', async ({ page }) => {
   await page.getByTestId('input-ticket-description').fill('Hello');
 
   // Create
-  await page.getByTestId('btn-confirm-create-ticket').click();
+  await page.getByTestId('btn-confirm-create-tickets').click();
   await expect(page.getByTestId('create-ticket-panel')).not.toBeVisible();
 
   // Ticket appears
