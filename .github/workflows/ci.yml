@@ -47,19 +47,19 @@ jobs:
           echo "NX_BASE=${{ github.event.before }}" >> $GITHUB_ENV
           echo "NX_HEAD=${{ github.sha }}" >> $GITHUB_ENV
 
-      - name: Print NX_BASE/NX_HEAD
-        run: |
-          echo "NX_BASE=$NX_BASE"
-          echo "NX_HEAD=$NX_HEAD"
+      # - name: Print NX_BASE/NX_HEAD
+      #   run: |
+      #     echo "NX_BASE=$NX_BASE"
+      #     echo "NX_HEAD=$NX_HEAD"
 
-    #  - name: Show affected projects (debug)
-    #    run: npx nx show projects --affected --base=$NX_BASE --head=$NX_HEAD
+      # - name: Show affected projects (debug)
+      #   run: npx nx show projects --affected --base=$NX_BASE --head=$NX_HEAD
 
-    #  - name: Run affected checks
-    #    run: npm run check:affected
+      - name: Run affected checks
+        run: npm run check:affected
 
-      #- name: Build affected
-      #  run: npm run build:affected
+      - name: Build affected
+        run: npm run build:affected
 
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
@@ -67,19 +67,6 @@ jobs:
       - name: Run E2E (Playwright)
         id: e2e
         run: npm run e2e:affected
-        
-      # - name: Debug Playwright files
-      #   if: ${{ always() }}
-      #   run: |
-      #     echo "outcome=${{ steps.e2e.outcome }}"
-      #     echo "conclusion=${{ steps.e2e.conclusion }}"
-      #     pwd
-      #     find dist -maxdepth 6 | sort || true
-
-      # - name: Debug upload condition
-      #   if: ${{ always() && steps.e2e.outcome == 'failure' }}
-      #   run: echo "upload condition matched"
-              
 
       - name: Upload Playwright report
         if: always() && steps.e2e.outcome == 'failure'
@@ -88,9 +75,4 @@ jobs:
           name: playwright-report
           path: dist/.playwright/apps/**/playwright-report
           if-no-files-found: warn
-          retention-days: 15
           include-hidden-files: true
-
-      # - name: Fail if E2E failed
-      #   if: ${{ steps.e2e.outcome == 'failure' }}
-      #   run: exit 1
