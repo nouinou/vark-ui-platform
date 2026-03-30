@@ -68,7 +68,7 @@ jobs:
         run: npm run e2e:affected
 
       - name: Upload Playwright report
-        if: failure()
+        if: ${{ failure() && steps.e2e.outcome == 'failure' && hashFiles('dist/.playwright/**/playwright-report/**/*') != '' }}
         uses: actions/upload-artifact@v4
         with:
           name: playwright-report
