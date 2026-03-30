@@ -68,17 +68,17 @@ jobs:
         id: e2e
         run: npm run e2e:affected
         
-      - name: Debug Playwright files
-        if: ${{ always() }}
-        run: |
-          echo "outcome=${{ steps.e2e.outcome }}"
-          echo "conclusion=${{ steps.e2e.conclusion }}"
-          pwd
-          find dist -maxdepth 6 | sort || true
+      # - name: Debug Playwright files
+      #   if: ${{ always() }}
+      #   run: |
+      #     echo "outcome=${{ steps.e2e.outcome }}"
+      #     echo "conclusion=${{ steps.e2e.conclusion }}"
+      #     pwd
+      #     find dist -maxdepth 6 | sort || true
 
-      - name: Debug upload condition
-        if: ${{ always() && steps.e2e.outcome == 'failure' }}
-        run: echo "upload condition matched"
+      # - name: Debug upload condition
+      #   if: ${{ always() && steps.e2e.outcome == 'failure' }}
+      #   run: echo "upload condition matched"
               
 
       - name: Upload Playwright report
