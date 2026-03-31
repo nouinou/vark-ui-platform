@@ -42,5 +42,6 @@
       "style": "scss",
       "unitTestRunner": "vitest"
     }
-  }
+  },
+  "analytics": false
 }
