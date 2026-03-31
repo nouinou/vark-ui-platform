@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { getStoredTheme, setTheme, type ThemeName } from '@vark/ui-theme';
 import { ButtonComponent, LinkComponent } from '@vark/ui-components';
+import type { DialogConfig } from '@vark/ui-components';
 
 type Ticket = {
   id: number;
@@ -32,6 +33,11 @@ export class App {
 
   protected openCreateTicketPanel() {
     this.isCreateTicketPanelOpen = true;
+    const dialogConfig: DialogConfig = {
+      size: 'md',
+    };
+
+    console.log(dialogConfig);
   }
 
   protected cancelCreateTicket() {

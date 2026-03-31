@@ -25,6 +25,9 @@
   --surface-panel-bottom: rgba(15, 23, 42, 0.96);
   --surface-panel-inset-top: rgba(51, 65, 85, 0.82);
   --surface-panel-inset-bottom: rgba(15, 23, 42, 0.92);
+  --color-overlay-backdrop: rgba(2, 6, 23, 0.72);
+  --surface-overlay: var(--recipe-panel-surface);
+  --shadow-overlay: var(--shadow-lg);
 
   --border-subtle: rgba(226, 232, 240, 0.18);
   --border-strong: rgba(226, 232, 240, 0.26);
