@@ -1,1 +1,17 @@
-<p>Dialog works!</p>
+<div
+  class="dialog-panel"
+  [class.dialog-panel--size-sm]="size() === 'sm'"
+  [class.dialog-panel--size-md]="size() === 'md'"
+  [class.dialog-panel--size-lg]="size() === 'lg'"
+  [attr.data-disable-close]="isDisableClose ? '' : null"
+  role="dialog"
+  aria-modal="true"
+  [attr.aria-labelledby]="ariaLabelledBy() ?? null"
+  [attr.aria-describedby]="ariaDescribedBy() ?? null"
+>
+  @if (templateContent; as template) {
+    <ng-container *ngTemplateOutlet="template"></ng-container>
+  } @else if (componentContent; as component) {
+    <ng-container *ngComponentOutlet="component"></ng-container>
+  }
+</div>

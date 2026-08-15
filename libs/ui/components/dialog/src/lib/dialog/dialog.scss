@@ -1,5 +1,24 @@
 :host {
+  display: block;
   --vark-dialog-backdrop-color: var(--color-overlay-backdrop);
   --vark-dialog-panel-surface: var(--surface-overlay);
   --vark-dialog-panel-shadow: var(--shadow-overlay);
+}
+
+.dialog-panel {
+  width: min(calc(100vw - (2 * var(--space-6))), 40rem);
+  max-height: calc(100vh - (2 * var(--space-6)));
+  overflow: auto;
+  padding: var(--space-6);
+  border-radius: var(--radius-xl);
+  background: var(--vark-dialog-panel-surface);
+  box-shadow: var(--vark-dialog-panel-shadow);
+}
+
+.dialog-panel--size-sm {
+  width: min(calc(100vw - (2 * var(--space-6))), 28rem);
+}
+
+.dialog-panel--size-lg {
+  width: min(calc(100vw - (2 * var(--space-6))), 56rem);
 }

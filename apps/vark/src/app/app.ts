@@ -1,9 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject, TemplateRef, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { getStoredTheme, setTheme, type ThemeName } from '@vark/ui-theme';
-import { ButtonComponent, LinkComponent } from '@vark/ui-components';
-import type { DialogConfig } from '@vark/ui-components';
+import { ButtonComponent, DialogConfig, DialogRef, DialogService, LinkComponent } from '@vark/ui-components';
 
 type Ticket = {
   id: number;
@@ -18,13 +17,17 @@ type Ticket = {
   styleUrl: './app.scss',
 })
 export class App {
+  @ViewChild('createTicketDialogTemplate', { static: true })
+  private createTicketDialogTemplate!: TemplateRef<unknown>;
+
   protected title = 'vark';
   protected activeTheme: ThemeName = getStoredTheme() ?? 'system';
-  protected isCreateTicketPanelOpen = false;
   protected draftTicketTitle = '';
   protected draftTicketDescription = '';
   protected tickets: Ticket[] = [];
   private nextTicketId = 1;
+  private readonly dialogService = inject(DialogService);
+  private createTicketDialogRef: DialogRef<void> | null = null;
 
   protected selectTheme(theme: ThemeName) {
     setTheme(theme);
@@ -32,17 +35,25 @@ export class App {
   }
 
   protected openCreateTicketPanel() {
-    this.isCreateTicketPanelOpen = true;
+    this.createTicketDialogRef?.close();
+
     const dialogConfig: DialogConfig = {
       size: 'md',
     };
 
-    console.log(dialogConfig);
+    this.createTicketDialogRef = this.dialogService.open<unknown, void>(
+      this.createTicketDialogTemplate,
+      dialogConfig,
+    );
+
+    this.createTicketDialogRef.afterClosed().subscribe(() => {
+      this.createTicketDialogRef = null;
+    });
   }
 
   protected cancelCreateTicket() {
-    this.isCreateTicketPanelOpen = false;
     this.resetTicketDraft();
+    this.createTicketDialogRef?.close();
   }
 
   protected confirmCreateTicket() {
@@ -55,8 +66,8 @@ export class App {
       },
     ];
 
-    this.isCreateTicketPanelOpen = false;
     this.resetTicketDraft();
+    this.createTicketDialogRef?.close();
   }
 
   protected trackTicketById(_index: number, ticket: Ticket) {

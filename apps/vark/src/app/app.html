@@ -133,42 +133,6 @@
         </vark-button>
       </div>
 
-      @if (isCreateTicketPanelOpen) {
-      <div class="ticket-panel panel panel--inset" data-testid="create-ticket-panel">
-        <label class="ticket-field">
-          <span class="ticket-field__label">Title</span>
-          <input
-            class="ticket-field__control"
-            type="text"
-            [(ngModel)]="draftTicketTitle"
-            data-testid="input-ticket-title"
-          />
-        </label>
-
-        <label class="ticket-field">
-          <span class="ticket-field__label">Description</span>
-          <textarea
-            class="ticket-field__control ticket-field__control--textarea"
-            [(ngModel)]="draftTicketDescription"
-            data-testid="input-ticket-description"
-          ></textarea>
-        </label>
-
-        <div class="ticket-panel__actions">
-          <vark-button
-            variant="secondary"
-            (click)="cancelCreateTicket()"
-            data-testid="btn-cancel-create-ticket"
-          >
-            Cancel
-          </vark-button>
-          <vark-button (click)="confirmCreateTicket()" data-testid="btn-confirm-create-ticket">
-            Create
-          </vark-button>
-        </div>
-      </div>
-      }
-
       <div class="tickets-list" data-testid="tickets-list">
         @for (ticket of tickets; track trackTicketById($index, ticket)) {
         <article class="ticket-item panel panel--inset" data-testid="ticket-item">
@@ -230,3 +194,39 @@
     </section>
   </main>
 </div>
+
+<ng-template #createTicketDialogTemplate>
+  <div class="" data-testid="create-ticket-panel">
+    <label class="ticket-field">
+      <span class="ticket-field__label">Title</span>
+      <input
+        class="ticket-field__control"
+        type="text"
+        [(ngModel)]="draftTicketTitle"
+        data-testid="input-ticket-title"
+      />
+    </label>
+
+    <label class="ticket-field">
+      <span class="ticket-field__label">Description</span>
+      <textarea
+        class="ticket-field__control ticket-field__control--textarea"
+        [(ngModel)]="draftTicketDescription"
+        data-testid="input-ticket-description"
+      ></textarea>
+    </label>
+
+    <div class="ticket-panel__actions">
+      <vark-button
+        variant="secondary"
+        (click)="cancelCreateTicket()"
+        data-testid="btn-cancel-create-ticket"
+      >
+        Cancel
+      </vark-button>
+      <vark-button (click)="confirmCreateTicket()" data-testid="btn-confirm-create-ticket">
+        Create
+      </vark-button>
+    </div>
+  </div>
+</ng-template>
